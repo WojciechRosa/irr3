@@ -33,6 +33,11 @@ def hello_world():
    content=get_file('index.html')
    return Response(content, mimetype="text/html")
 
+@app.route('/status')
+def action():
+    print('status')
+    
+    
 @app.route('/<action>/<section>/<time>')
 def action(action,section,time):
 
