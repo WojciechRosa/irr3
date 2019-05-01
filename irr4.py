@@ -33,10 +33,10 @@ gpio_sections_list =[5, 6, 13, 19,22, 26]
 GPIO.setup(gpio_pump, GPIO.OUT)         #inicjacja pompy
 GPIO.output(gpio_pump, GPIO.HIGH)
 
+
 GPIO.setup(gpio_rain_test, GPIO.IN)     #inicjacja czujnika deszczu
 GPIO.setup(gpio_water_test, GPIO.IN)    #inicjacja czujnika wody
-GPIO.setup(gpio_main_switch, GPIO.IN)   #inicjacja głównego przelacznika
-
+GPIO.setup(gpio_main_switch, GPIO.IN)   #inicjacja glownego przelacznika
 
 for section_id in gpio_sections_list:   #inicjacja sekcji podlewania
     GPIO.setup(section_id, GPIO.OUT)
