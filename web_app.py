@@ -48,7 +48,7 @@ def hello_world():
 @app.route('/status')
 def status():
     str='<b> informacja o statusie pompy </b><br>'
-    str=str+"status wody "+ GPIO.input(gpio_water_test)
+    str=str+"status wody " + 'woda ok ' if GPIO.input(gpio_water_test) else 'woda not ok'
 
     return str
     
