@@ -36,7 +36,7 @@ def hello_world():
 @app.route('/<action>/<section>/<time>')
 def action(action,section,time):
 
-        if (action=='on' or action=="off") and int(section) <7 and int(time) < $
+        if (action=='on' or action=="off") and int(section) <7 and int(time) < 31:
                 #py_cmd = ' python irr_main3.py'
                 py_cmd=datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')+';'
                 if action == "on": py_cmd= py_cmd + "start;"+time+";"+ section
