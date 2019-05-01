@@ -35,7 +35,7 @@ def hello_world():
 
 @app.route('/status')
 def action():
-    print('status')
+    return 'status'
     
     
 @app.route('/<action>/<section>/<time>')
