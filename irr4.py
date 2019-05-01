@@ -85,7 +85,7 @@ while True:
                 
         else:
 
-                print('nie działa')
+                print('nie dziala')
                 Pompa.stop()
                 print(date_time_stop)
 
