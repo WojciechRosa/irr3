@@ -8,6 +8,18 @@ import os
 import signal
 import atexit
 import datetime
+
+import RPi.GPIO as GPIO
+GPIO.setmode(GPIO.BCM)
+
+gpio_pump = 17
+gpio_rain_test = 2
+gpio_water_test = 3
+gpio_main_switch = 5
+gpio_sections_list =[5, 6, 13, 19,22, 26]
+
+
+
 app = Flask(__name__)
 
 def root_dir():  # pragma: no cover
@@ -35,7 +47,10 @@ def hello_world():
 
 @app.route('/status')
 def status():
-    return 'status'
+    str='<b> informacja o statusie pompy </b><br>'
+    str=str+"status wody "+ GPIO.input(gpio_water_test)
+
+    return str
     
     
 @app.route('/<action>/<section>/<time>')
