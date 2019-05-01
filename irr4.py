@@ -73,7 +73,7 @@ while True:
         date_time,cmd,minutes,section =f.readline().split(';')
         time_delta=int(minutes)*60
 
-        date_time_start = datetime.datetime.strptime(date_time, '%Y-%m-%d %H:%M$
+        date_time_start = datetime.datetime.strptime(date_time, '%Y-%m-%d %H:%M:%S')
         date_time_stop=date_time_start+datetime.timedelta(seconds=time_delta)
 
         print(date_time, cmd, minutes, section)
