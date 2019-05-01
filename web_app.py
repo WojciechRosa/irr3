@@ -34,7 +34,7 @@ def hello_world():
    return Response(content, mimetype="text/html")
 
 @app.route('/status')
-def action():
+def status():
     return 'status'
     
     
