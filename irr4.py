@@ -90,7 +90,7 @@ while True:
                 print(date_time_stop)
     except KeyboardInterrupt:
 
-        GPIO.output(gpio_pump, GPIO.HIGH) #wyłączenie pompy
+        GPIO.output(gpio_pump, GPIO.HIGH) #wylaczenie pompy
         print('stopped by CTRL+C')
         stored_exception=sys.exc_info()
         break
