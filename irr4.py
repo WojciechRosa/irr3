@@ -79,9 +79,9 @@ while True:
         print(date_time, cmd, minutes, section)
 
         if date_time_stop>=datetime.datetime.now():
-                print('działa')
-                if cmd=='start': Pompa.start(int(section))
-                if cmd!='start': Pompa.stop()
+            print('dziala')
+            if cmd=='start': Pompa.start(int(section))
+            if cmd!='start': Pompa.stop()
                 
         else:
 
