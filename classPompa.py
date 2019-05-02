@@ -31,7 +31,10 @@ class class_pompa(object):
         for section_id in self.gpio_sections_list:   # inicjacja sekcji podlewania
             GPIO.setup(section_id, GPIO.OUT)
             GPIO.output(section_id, GPIO.HIGH)      # reset of all section
-
+    def reset(self):
+        GPIO.output(self.gpio_pump, GPIO.HIGH)      # pump switch off
+        for section_id in self.gpio_sections_list:   # inicjacja sekcji podlewania
+            GPIO.output(section_id, GPIO.HIGH)      # reset of all section
 
 
     def status(self):
