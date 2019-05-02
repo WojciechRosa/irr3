@@ -82,7 +82,7 @@ while True:
             print('dziala')
             if cmd=='start': Pompa.start(int(section))
             if cmd!='start': Pompa.stop()
-                
+
         else:
 
                 print('nie dziala')
@@ -137,8 +137,8 @@ while minutes>i:
                 sleep(10)
 
         now = datetime.now()
-        
-        
+
+
         print "---- praca -------"
         print str(now)
         print "pump status:" + str(GPIO.input(gpio_pump))
@@ -151,7 +151,7 @@ while minutes>i:
 print "------------------"
 GPIO.cleanup()
 
- 
+
 
 
 

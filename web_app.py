@@ -9,22 +9,6 @@ import signal
 import atexit
 import datetime
 
-import RPi.GPIO as GPIO
-GPIO.setmode(GPIO.BCM)
-
-gpio_pump = 17
-gpio_rain_test = 2
-gpio_water_test = 3
-gpio_main_switch = 5
-gpio_sections_list =[5, 6, 13, 19,22, 26]
-
-GPIO.setup(gpio_pump, GPIO.OUT)         #inicjacja pompy
-GPIO.setup(gpio_rain_test, GPIO.IN)     #inicjacja czujnika deszczu
-GPIO.setup(gpio_water_test, GPIO.IN)    #inicjacja czujnika wody
-GPIO.setup(gpio_main_switch, GPIO.IN)   #inicjacja glownego przelacznika
-
-for section_id in gpio_sections_list:   #inicjacja sekcji podlewania
-    GPIO.setup(section_id, GPIO.OUT)
 
 app = Flask(__name__)
 
@@ -51,16 +35,6 @@ def hello_world():
    content=get_file('index.html')
    return Response(content, mimetype="text/html")
 
-@app.route('/status')
-def status():
-    o_str='<b> informacja o statusie pompy </b><br>'
-    o_str=o_str+"status wody " + 'woda ok ' if GPIO.input(gpio_water_test) else 'woda not ok' + '<br>'
-    o_str=o_str+"status pompy " + 'pompa pracuje ' if GPIO.input(gpio_pump) else 'pompa nie pracuje' + '<br>'
-    o_str=o_str+'<br>'
-
-    #for section_id in gpio_sections_list:   #inicjacja sekcji podlewania
-    #    o_str=o_str+"status sekcji " +str(section_id) + ' true ' if GPIO.setup(section_id, GPIO.OUT) else '  false' + '<br>'
-    return o_str
 
 
 @app.route('/<action>/<section>/<time>')

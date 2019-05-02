@@ -22,7 +22,6 @@ class class_pompa(object):
         GPIO.setwarnings(False)
 
         GPIO.setup(self.gpio_pump, GPIO.OUT)         # pomp initiation
-        GPIO.output(self.gpio_pump, GPIO.HIGH)      # pump switch off
 
         GPIO.setup(self.gpio_rain_test, GPIO.IN)     # inicjacja czujnika deszczu
         GPIO.setup(self.gpio_water_test, GPIO.IN)    # inicjacja czujnika wody
@@ -30,7 +29,7 @@ class class_pompa(object):
 
         for section_id in self.gpio_sections_list:   # inicjacja sekcji podlewania
             GPIO.setup(section_id, GPIO.OUT)
-            GPIO.output(section_id, GPIO.HIGH)      # reset of all section
+
     def reset(self):
         GPIO.output(self.gpio_pump, GPIO.HIGH)      # pump switch off
         for section_id in self.gpio_sections_list:   # inicjacja sekcji podlewania
@@ -47,3 +46,15 @@ class class_pompa(object):
             txt = txt + "Sekcja [" + str(section) + "]:    " + "zamknieta" if GPIO.input(section) else "otwarta"
             txt = txt + " \n"
         return txt
+
+    def open_section(self, section):   # open section
+        GPIO.output(self.gpio_sections_list[section-1], GPIO.LOW)
+
+    def close_section(self, section):   # close section
+        GPIO.output(self.gpio_sections_list[section-1], GPIO.HIGH)
+
+    def pompa_stop(self, section):   # stop pompa
+        GPIO.output(self.gpio_pump, GPIO.HIGH)
+        
+    def pompa_start(self, section):   # start pompa
+        GPIO.output(self.gpio_pump, GPIO.LOW)
