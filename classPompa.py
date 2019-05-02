@@ -19,6 +19,7 @@ class class_pompa(object):
         self.gpio_sections_list = irr_config.gpio_sections_list
 
         GPIO.setmode(GPIO.BCM)
+        GPIO.setwarnings(False)
 
         GPIO.setup(self.gpio_pump, GPIO.OUT)         # pomp initiation
         GPIO.output(self.gpio_pump, GPIO.HIGH)      # pump switch off
@@ -34,4 +35,7 @@ class class_pompa(object):
 
 
     def status(self):
-        print("status pompy  " + str(GPIO.input(self.gpio_pump)))
+        txt = "status pompy \n"
+        txt = txt + "status pompy:  " + "stop" if GPIO.input(self.gpio_pump) else "praca" +"\n"
+        txt = txt + "status wody:   " + "jest woda" if GPIO.input(self.gpio_pump) else "brak wody" +"\n"
+        self.status = txt
