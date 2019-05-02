@@ -38,13 +38,11 @@ class class_pompa(object):
 
     def status(self):
         txt = "status pompy \n"
-        txt = txt + "Pompa:          " + "stop" if GPIO.input(self.gpio_pump) else "praca"
-        txt = txt + " \n"
-        txt = txt + "Woda w sudni:   " + "jest woda" if GPIO.input(self.gpio_pump) else "brak wody"
-        txt = txt + " \n"
+        txt = txt + "Pompa:          " + ("stop" if GPIO.input(self.gpio_pump) else "praca") + " \n"
+        txt = txt + "Woda w sudni:   " + ("jest woda" if GPIO.input(self.gpio_pump) else "brak wody") + " \n"
+
         for section in self.gpio_sections_list:
-            txt = txt + "Sekcja [" + str(section) + "]:    " + ("zamknieta" if GPIO.input(section) else "otwarta")
-            txt = txt + " \n"
+            txt = txt + "Sekcja [" + str(section) + "]:    " + ("zamknieta" if GPIO.input(section) else "otwarta") + " \n"
         return txt
 
     def open_section(self, section):   # open section
