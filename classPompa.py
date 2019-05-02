@@ -43,7 +43,7 @@ class class_pompa(object):
         txt = txt + "Woda w sudni:   " + "jest woda" if GPIO.input(self.gpio_pump) else "brak wody"
         txt = txt + " \n"
         for section in self.gpio_sections_list:
-            txt = txt + "Sekcja [" + str(section) + "]:    " + "zamknieta" if GPIO.input(section) else "otwarta"
+            txt = txt + "Sekcja [" + str(section) + "]:    " + ("zamknieta" if GPIO.input(section) else "otwarta")
             txt = txt + " \n"
         return txt
 
@@ -55,6 +55,6 @@ class class_pompa(object):
 
     def pompa_stop(self, section):   # stop pompa
         GPIO.output(self.gpio_pump, GPIO.HIGH)
-        
+
     def pompa_start(self, section):   # start pompa
         GPIO.output(self.gpio_pump, GPIO.LOW)
