@@ -1,10 +1,3 @@
-"""
-Doc String
-Author: Wojceic Rosa
-
-Class: Pompa
-
-"""
 
 import irr_config
 import RPi.GPIO as GPIO
@@ -39,7 +32,7 @@ class class_pompa(object):
     def status(self):
         txt = "status pompy \n"
         txt = txt + "Pompa:          " + ("stop" if GPIO.input(self.gpio_pump) else "praca") + " \n"
-        txt = txt + "Woda w sudni:   " + ("jest woda" if GPIO.input(self.gpio_pump) else "brak wody") + " \n"
+        txt = txt + "Woda w sudni:   " + ("jest woda" if GPIO.input(self.gpio_water_test) else "brak wody") + " \n"
 
         for section in self.gpio_sections_list:
             txt = txt + "Sekcja [" + str(section) + "]:    " + ("zamknieta" if GPIO.input(section) else "otwarta") + " \n"
