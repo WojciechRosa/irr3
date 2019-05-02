@@ -1,9 +1,5 @@
 # web_app.py
-<<<<<<< HEAD
-# Author: Wojciech Rosa
-=======
 #author: Wojciech Rosa
->>>>>>> 6d69bfd19539410829a6d70f16ae3501b2149f7f
 
 import subprocess
 from flask import Flask , Response
