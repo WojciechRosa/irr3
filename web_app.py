@@ -1,5 +1,5 @@
 # web_app.py
-
+#author: Wojciech Rosa
 
 import subprocess
 from flask import Flask , Response
@@ -57,12 +57,12 @@ def status():
     o_str=o_str+"status wody " + 'woda ok ' if GPIO.input(gpio_water_test) else 'woda not ok' + '<br>'
     o_str=o_str+"status pompy " + 'pompa pracuje ' if GPIO.input(gpio_pump) else 'pompa nie pracuje' + '<br>'
     o_str=o_str+'<br>'
-    
+
     #for section_id in gpio_sections_list:   #inicjacja sekcji podlewania
     #    o_str=o_str+"status sekcji " +str(section_id) + ' true ' if GPIO.setup(section_id, GPIO.OUT) else '  false' + '<br>'
     return o_str
-    
-    
+
+
 @app.route('/<action>/<section>/<time>')
 def action(action,section,time):
 
