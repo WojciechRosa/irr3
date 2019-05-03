@@ -27,6 +27,7 @@ class class_pompa(object):
         GPIO.output(self.gpio_pump, GPIO.HIGH)      # pump switch off
         for section_id in self.gpio_sections_list:   # inicjacja sekcji podlewania
             GPIO.output(section_id, GPIO.HIGH)      # reset of all section
+        GPIO.cleanup()
 
 
     def status(self):
@@ -44,8 +45,15 @@ class class_pompa(object):
     def close_section(self, section):   # close section
         GPIO.output(self.gpio_sections_list[section-1], GPIO.HIGH)
 
-    def pompa_stop(self, section):   # stop pompa
+    def stop(self):   # stop pompa
         GPIO.output(self.gpio_pump, GPIO.HIGH)
 
-    def pompa_start(self, section):   # start pompa
+    def start(self):   # start pompa
         GPIO.output(self.gpio_pump, GPIO.LOW)
+
+    def close_all_sections(self):
+        for section_id in self.gpio_sections_list:
+            GPIO.output(section_id, GPIO.HIGH)          #close all sections
+    def water_test(self):
+        return GPIO.input(self.gpio_water_test)
+
