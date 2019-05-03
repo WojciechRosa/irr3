@@ -38,7 +38,7 @@ while minutes>i:
                 print(p.status)
                 print(i)
     except KeyboardInterrupt:
-        GPIO.output(gpio_pump, GPIO.HIGH) #wylaczenie pompy
+        p.stop()
         print('stopped by CTRL+C')
         stored_exception=sys.exc_info()
         break
