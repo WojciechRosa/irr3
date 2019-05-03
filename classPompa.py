@@ -55,5 +55,5 @@ class class_pompa(object):
         for section_id in self.gpio_sections_list:
             GPIO.output(section_id, GPIO.HIGH)          #close all sections
     def water_test(self):
-        return not GPIO.input(self.gpio_water_test)
+        return  GPIO.input(self.gpio_water_test)
 
