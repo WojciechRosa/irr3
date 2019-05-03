@@ -32,7 +32,7 @@ while minutes>i:
                 p.start()
                 p.open_section(sekcja)
                 sleep(10)
-        else
+        else:
                 p.stop()
                 p.close_all_sections()
                 break
