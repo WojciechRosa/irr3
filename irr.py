@@ -21,20 +21,24 @@ print 'Argument List:', str(sys.argv) , '\n-------------------------------------
 
 # Main Program
 while minutes>i:
-        i += 1
+    i += 1
+    try:
+                if p.water_test:
+                        print "end process: water test"
+                        p.stop()
 
-        if p.water_test:
-                print "end process: water test"
-                p.stop()
-                break
-
-        if str(sys.argv[1]) == 'start':
-                p.start()
-                p.open_section(sekcja)
-                sleep(10)
-        else:
-                p.stop()
-                p.close_all_sections()
-                break
-        print(p.status)
-        print(i)
+                if str(sys.argv[1]) == 'start':
+                        p.start()
+                        p.open_section(sekcja)
+                        sleep(10)
+                else:
+                        p.stop()
+                        p.close_all_sections()
+                        break
+                print(p.status)
+                print(i)
+    except KeyboardInterrupt:
+        GPIO.output(gpio_pump, GPIO.HIGH) #wylaczenie pompy
+        print('stopped by CTRL+C')
+        stored_exception=sys.exc_info()
+        break
