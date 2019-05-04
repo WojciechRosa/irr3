@@ -12,7 +12,7 @@ p=class_pompa()
 try:
     minutes=int(sys.argv[2])*6
     sekcja=int(sys.argv[3])
-except
+except:
     minutes=0
     sekcja=0
 i=0
