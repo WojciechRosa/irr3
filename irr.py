@@ -23,7 +23,7 @@ print 'Argument List:', str(sys.argv) , '\n-------------------------------------
 while minutes>i:
     i += 1
     try:
-                if p.water_test:
+                if p.water_test():
                         print "end process: water test"
                         p.stop()
 
@@ -44,3 +44,4 @@ while minutes>i:
         print('stopped by CTRL+C')
         stored_exception=sys.exc_info()
         break
+p.stop()
