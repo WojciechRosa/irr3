@@ -9,8 +9,12 @@ from classPompa import class_pompa
 
 p=class_pompa()
 
-minutes=int(sys.argv[2])*6
-sekcja=int(sys.argv[3])-1
+try:
+    minutes=int(sys.argv[2])*6
+    sekcja=int(sys.argv[3])
+except
+    minutes=0
+    sekcja=0
 i=0
 
 
@@ -33,11 +37,16 @@ while minutes>i:
                         sleep(10)
                 elif str(sys.argv[1]) == 'status':
                         print(p.status())
+                
+                elif str(sys.argv[1]) == 'reset':
+                        p.reset()
+                        print(p.status())
+                
                 else:
                         p.stop()
                         p.close_all_sections()
                         break
-                print(p.status)
+                print(p.status())
                 print(i)
     except KeyboardInterrupt:
         p.stop()
