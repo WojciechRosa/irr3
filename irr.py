@@ -31,6 +31,8 @@ while minutes>i:
                         p.start()
                         p.open_section(sekcja)
                         sleep(10)
+                elif str(sys.argv[1]) == 'status':
+                        print(p.status())
                 else:
                         p.stop()
                         p.close_all_sections()
