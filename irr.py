@@ -24,7 +24,7 @@ print 'Argument List:', str(sys.argv) , '\n-------------------------------------
 
 
 # Main Program
-while minutes=>i:
+while minutes>=i:
     i += 1
     try:
                 if p.water_test():
