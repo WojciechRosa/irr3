@@ -13,9 +13,12 @@ p=class_pompa()
 
 try:
     minutes=int(sys.argv[2])*6
+    number_of_args=len(sys.argv)
 except:
     minutes=0
+    number_of_args=0
 i=0
+
 
 
 
@@ -33,10 +36,13 @@ while minutes>=i:
 
                 if str(sys.argv[1]) == 'start':
                         p.close_all_sections()
-                        for i in xrange(3, len(sys.argv))
+                        for i in xrange(3,number_of_args):
                             try:
                                 sekcja=int(sys.argv[i])
                                 p.open_section(sekcja)
+                            except ValueError:
+                                print(" Error of input parameters")
+                                quit()
                         p.start()
                         sleep(10)
                 elif str(sys.argv[1]) == 'status':
