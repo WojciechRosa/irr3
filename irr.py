@@ -36,9 +36,9 @@ while minutes>=i:
 
                 if str(sys.argv[1]) == 'start':
                         p.close_all_sections()
-                        for i in xrange(3,number_of_args):
+                        for x in xrange(3,number_of_args):
                             try:
-                                sekcja=int(sys.argv[i])
+                                sekcja=int(sys.argv[x])
                                 p.open_section(sekcja)
                             except ValueError:
                                 print(" Error of input parameters")
