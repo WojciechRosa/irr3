@@ -33,6 +33,7 @@ while minutes>=i:
                 if p.water_test():
                         print "end process: water test"
                         p.stop()
+                        quit()
 
                 if str(sys.argv[1]) == 'start':
                         p.close_all_sections()
