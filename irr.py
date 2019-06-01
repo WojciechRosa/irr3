@@ -34,6 +34,10 @@ print 'Argument List:', str(sys.argv) , '\n-------------------------------------
 if str(sys.argv[1]) == 'water_test':
     if p.water_test():
         p.reset()
+        print("no water, system switch off")
+    else:
+        print("water ok")
+
     exit()
 
 # main loop for watering
