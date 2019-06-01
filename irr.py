@@ -27,6 +27,16 @@ print 'Argument List:', str(sys.argv) , '\n-------------------------------------
 
 
 # Main Program
+
+
+# Part responsible for cross check if water is in well
+# this part is run by crontab
+if str(sys.argv[1]) == 'water_test':
+    if p.water_test():
+        p.reset()
+    exit()
+
+# main loop for watering
 while minutes>=i:
     i += 1
     try:
