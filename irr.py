@@ -31,14 +31,16 @@ print 'Argument List:', str(sys.argv) , '\n-------------------------------------
 
 # Part responsible for cross check if water is in well
 # this part is run by crontab
+
+file_log="/home/pi/irr3/water_test.log"
 if str(sys.argv[1]) == 'water_test':
     if p.water_test():
         p.reset()
         print("no water, system switch off")
-        p.add_to_log("water_test.log", "no water")
+        p.add_to_log(file_log, "no water")
     else:
-        p.add_to_log("water_test.log", "water OK")
-        
+        p.add_to_log(file_log, "water OK")
+
     exit()
 
 # main loop for watering
