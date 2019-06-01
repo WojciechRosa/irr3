@@ -1,6 +1,8 @@
 
 import irr_config
 import RPi.GPIO as GPIO
+from datetime import datetime
+
 
 
 class class_pompa(object):
@@ -56,4 +58,13 @@ class class_pompa(object):
             GPIO.output(section_id, GPIO.HIGH)          #close all sections
     def water_test(self):
         return  GPIO.input(self.gpio_water_test)
+
+    def add_to_log(self, log_file, log_text):
+        now = datetime.now() # current date and time
+        date_time = now.strftime("%m/%d/%Y, %H:%M:%S")
+        f = open(log_file,"a+")
+
+        log_text = date_time + "   " + log_text +"\n"
+        f.write(log_text)
+        f.close()
 

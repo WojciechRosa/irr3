@@ -35,9 +35,10 @@ if str(sys.argv[1]) == 'water_test':
     if p.water_test():
         p.reset()
         print("no water, system switch off")
+        p.add_to_log("water_test.log", "no water")
     else:
-        print("water ok")
-
+        p.add_to_log("water_test.log", "water OK")
+        
     exit()
 
 # main loop for watering
