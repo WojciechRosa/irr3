@@ -24,6 +24,7 @@ i=0
 
 print "\nStart programu \n", 'Number of arguments:', len(sys.argv), 'arguments.'
 str_arg = 'Argument List:', str(sys.argv) , '\n---------------------------------------------- '
+str_arg = str(str_arg)
 print str_arg
 p.add_to_log(p.file_action_log, str_arg)
 
