@@ -23,8 +23,9 @@ i=0
 
 
 print "\nStart programu \n", 'Number of arguments:', len(sys.argv), 'arguments.'
-print 'Argument List:', str(sys.argv) , '\n---------------------------------------------- '
-
+str_arg = 'Argument List:', str(sys.argv) , '\n---------------------------------------------- '
+print str_arg
+p.add_to_log(p.file_action_log, str_arg)
 
 # Main Program
 
@@ -47,8 +48,6 @@ if str(sys.argv[1]) == 'water_test':
 # main loop for watering
 while minutes>=i:
     i += 1
-    if i == 1:
-        p.add_to_log(p.file_action_log, "new actio; " + p.status())
     try:
                 if p.water_test():
                         print "end process: water test"

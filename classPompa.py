@@ -35,7 +35,7 @@ class class_pompa(object):
 
 
     def status(self):
-        txt = "    status pompy \n"
+        txt = "    Status pompy \n"
         txt = txt + "    Pompa:          " + ("stop" if GPIO.input(self.gpio_pump) else "praca") + " \n"
         txt = txt + "    Woda w sudni:   " + ("jest woda" if not GPIO.input(self.gpio_water_test) else "brak wody") + " \n"
 
