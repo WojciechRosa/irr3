@@ -12,6 +12,8 @@ class class_pompa(object):
         self.gpio_water_test = irr_config.gpio_water_test
         self.gpio_main_switch = irr_config.gpio_main_switch
         self.gpio_sections_list = irr_config.gpio_sections_list
+        self.file_test_log = irr_config.file_test_log
+        self.file_action_log = irr_config.file_action_log
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
@@ -65,6 +67,7 @@ class class_pompa(object):
         f = open(log_file,"a+")
 
         log_text = date_time + "   " + log_text +"\n"
+        f.seek(0)
         f.write(log_text)
         f.close()
 
