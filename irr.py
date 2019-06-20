@@ -54,6 +54,8 @@ while minutes>=i:
                 if p.water_test():
                         print "end process: water test"
                         p.stop()
+                        p.close_all_sections()
+
                         p.add_to_log(p.file_action_log, "turn_off pump;   no water")
                         quit()
 
@@ -86,6 +88,8 @@ while minutes>=i:
                 print(i)
     except KeyboardInterrupt:
         p.stop()
+        p.close_all_sections()
+
         print('stopped by CTRL+C')
         stored_exception=sys.exc_info()
         break
