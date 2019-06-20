@@ -26,7 +26,7 @@ print "\nStart programu \n", 'Number of arguments:', len(sys.argv), 'arguments.'
 str_arg = 'Argument List:', str(sys.argv) , '\n---------------------------------------------- '
 str_arg = str(str_arg)
 print str_arg
-p.add_to_log(p.file_action_log, str_arg)
+
 
 # Main Program
 
@@ -47,6 +47,7 @@ if str(sys.argv[1]) == 'water_test':
     exit()
 
 # main loop for watering
+p.add_to_log(p.file_action_log, str_arg)
 while minutes>=i:
     i += 1
     try:
@@ -89,3 +90,4 @@ while minutes>=i:
         stored_exception=sys.exc_info()
         break
 p.stop()
+p.close_all_sections()
