@@ -90,3 +90,4 @@ while minutes>=i:
         stored_exception=sys.exc_info()
         break
 p.stop()
+p.close_all_sections()
