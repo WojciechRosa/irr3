@@ -1,7 +1,6 @@
 
-import irr_config
-import RPi.GPIO as GPIO
-from datetime import datetime
+
+import irr_config import RPi.GPIO as GPIO from datetime import datetime
 
 
 
@@ -14,7 +13,6 @@ class class_pompa(object):
         self.gpio_sections_list = irr_config.gpio_sections_list
         self.file_test_log = irr_config.file_test_log
         self.file_action_log = irr_config.file_action_log
-	self.sections_name = irr_config.sections_name
 
         GPIO.setmode(GPIO.BCM)
         GPIO.setwarnings(False)
@@ -40,11 +38,9 @@ class class_pompa(object):
         txt = txt + "    Pompa:          " + ("stop" if GPIO.input(self.gpio_pump) else "praca") + " \n"
         txt = txt + "    Woda w sudni:   " + ("jest woda" if not GPIO.input(self.gpio_water_test) else "brak wody") + " \n"
 
-	i=0
         for section in self.gpio_sections_list:
-            txt = txt + "    Sekcja [" + ("0" if section < 10 else "") + str(section) + "]:    " + ("zamknieta" if GPIO.input(section) else "otwarta  ") 
-            txt = txt + ":  "  + self.sections_name[i]  +"\n"
-	    i=i+1
+            txt = txt + "    Sekcja [" + ("0" if section < 10 else "") + str(section) + "]:    " + ("zamknieta" if GPIO.input(section) else "otwarta") 
+            txt = txt + "    nazwa sekcji " +"\n"
 	return txt
 
     def open_section(self, section):   # open section

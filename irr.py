@@ -52,6 +52,7 @@ while minutes>=i:
     i += 1
     try:
                 if p.water_test():
+		#if 1<>1:
                         print "end process: water test"
                         p.stop()
                         p.close_all_sections()
